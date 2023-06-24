@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="arquivos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="arquivos.h" />
 		<Unit filename="interface.c">
 			<Option compilerVar="CC" />
 		</Unit>
