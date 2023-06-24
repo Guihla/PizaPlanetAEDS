@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "interface.h"
 
-//guilherme é baitola
-
 char opcoes[][51] = {"Pesquisar",  "Anexar", "Sair"};
 int x[] = {30, 55, 81};
 int y[] = {24, 24, 24};
