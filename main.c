@@ -9,11 +9,11 @@ int y[] = {24, 24, 24};
 void TelaPrincipal () {
     TextColoreback(GREEN, BLACK);
     Borda(0, 0, 118, 28, 1, 0);
-    GotoXY(33, 1); printf("    ____  _                    ____  __                 __");
-    GotoXY(33, 2); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
-    GotoXY(33, 3); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
-    GotoXY(33, 4); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
-    GotoXY(33, 5); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
     Borda(27, 23, 15, 2, 0,0);
     Borda(52, 23, 15, 2, 0,0);
     Borda(77, 23, 15, 2, 0,0);
@@ -37,11 +37,13 @@ int main(){
     do {
         TelaPrincipal();
         escolha = Menu(opcoes, x, y, escolha, 3);
-        if(escolha == 0);
-        if(escolha == 1);
+        if(escolha == 0)
+            Buscar_Pizza();
+        if(escolha == 1)
+            Ler_Arquivo();
         if(escolha == 2)
             break;
     } while(escolha != -1);
-    printf("\n\n\n\n\n\n\n\n");
+    GotoXY(0, 60);
     return  0;
 }

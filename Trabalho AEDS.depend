@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1687902632 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
+	"interface.h"
+
+1687634317 c:\users\gui\desktop\pizaplanetaeds\interface.h
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<windows.h>
+
+1687905521 source:c:\users\gui\desktop\pizaplanetaeds\main.c
+	<stdio.h>
+	<stdlib.h>
+	"interface.h"
+
+1687907471 source:c:\users\gui\desktop\pizaplanetaeds\arquivos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arquivos.h"
+
+1687905568 c:\users\gui\desktop\pizaplanetaeds\arquivos.h
+
+1687908232 source:c:\users\gui\desktop\pizaplanetaeds\buscar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"buscar.h"
+	"interface.h"
+
+1687904435 c:\users\gui\desktop\pizaplanetaeds\buscar.h
+

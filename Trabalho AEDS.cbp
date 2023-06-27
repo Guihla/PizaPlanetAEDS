@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="arquivos.h" />
+		<Unit filename="buscar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="buscar.h" />
 		<Unit filename="interface.c">
 			<Option compilerVar="CC" />
 		</Unit>
