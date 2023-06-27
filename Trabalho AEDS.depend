@@ -8,7 +8,7 @@
 	<string.h>
 	<windows.h>
 
-1687905521 source:c:\users\gui\desktop\pizaplanetaeds\main.c
+1687908898 source:c:\users\gui\desktop\pizaplanetaeds\main.c
 	<stdio.h>
 	<stdlib.h>
 	"interface.h"
@@ -21,12 +21,12 @@
 
 1687905568 c:\users\gui\desktop\pizaplanetaeds\arquivos.h
 
-1687908232 source:c:\users\gui\desktop\pizaplanetaeds\buscar.c
+1687908890 source:c:\users\gui\desktop\pizaplanetaeds\buscar.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"buscar.h"
 	"interface.h"
 
-1687904435 c:\users\gui\desktop\pizaplanetaeds\buscar.h
+1687908857 c:\users\gui\desktop\pizaplanetaeds\buscar.h
 

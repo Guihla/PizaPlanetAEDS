@@ -5,19 +5,6 @@
 #include "interface.h"
 
 Dados D[10000];
-FILE *fp;
-
-void Abrir_Arquivo(){
-    FILE *fp = fopen("Banco de Dados.csv", "r");
-    if(fp == NULL){
-        printf("Erro na abertura do arquivo\n");
-        exit(1);
-    }
-}
-
-void Fechar_Arquivo(){
-    fclose(fp);
-}
 
 void TelaBuscar(){
     TextColoreback(GREEN, BLACK);
@@ -46,5 +33,4 @@ void Buscar_Pizza(){
 
         }
     }while(Escolha != 1);
-    Fechar_Arquivo();
 }

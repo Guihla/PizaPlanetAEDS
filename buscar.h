@@ -1,8 +1,7 @@
 #ifndef BUSCAR_H_INCLUDED
 #define BUSCAR_H_INCLUDED
 
-struct dados
-{
+struct dados{
     int order_details_id;
     int order_id;
     char pizza_id[100];
