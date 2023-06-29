@@ -3,10 +3,11 @@
 #include <string.h>
 #include "arquivos.h"
 
-Dados D[10000];
+Dados D;
 
 void Ler_Arquivo(){
-    char linha[100000], texto[100000];
+    FILE *fb = fopen("DadosPizzaria.txt","wb+");
+    char linha[1000000], texto[1000000];
     char *sub, *sub2;
     int campo = 0, i = 0, j, tam, t, a, aspas;
 
@@ -19,11 +20,11 @@ void Ler_Arquivo(){
     //printf("%s\n", linha); // Mostra a linha
     while (fscanf (fp, " %[^\n]", linha)!=EOF){
         //printf("%s\n", linha); // Mostra a linha
-        if(i > 10) break; // testa com os primeiros 20
+        //if(i > 10) break; // testa com os primeiros 20
         campo = 0;
         texto[0] = 0;
         tam = strlen(linha);
-        memset(&D[i], 0, sizeof(Dados));
+        memset(&D, 0, sizeof(Dados));
         for(t = 0; t < tam; t++){
             a = 0;
             aspas = 0;
@@ -42,51 +43,53 @@ void Ler_Arquivo(){
             texto[a++] = 0;
             switch (campo){
             case 0:
-                D[i].order_details_id = atoi(texto);
+                D.order_details_id = atoi(texto);
                 break;
             case 1:
-                D[i].order_id = atoi(texto);
+                D.order_id = atoi(texto);
                 break;
             case 2:
-                strncpy(D[i].pizza_id, texto, 99); //99 pq é o tamanho da string menos 1
+                strncpy(D.pizza_id, texto, 99); //99 pq é o tamanho da string menos 1
                 break;
             case 3:
-                D[i].quantity = atoi(texto);
+                D.quantity = atoi(texto);
                 break;
             case 4:
-                strncpy (D[i].order_date, texto, 10); //atoi transforma string em inteiro
+                strncpy (D.order_date, texto, 10); //atoi transforma string em inteiro
                 break;
             case 5:
-                strncpy (D[i].order_time, texto, 8);
+                strncpy (D.order_time, texto, 8);
                 break;
             case 6:
-                D[i].unit_price = atof(texto);
+                D.unit_price = atof(texto);
                 break;
             case 7:
-                D[i].total_price = atof(texto);
+                D.total_price = atof(texto);
                 break;
             case 8:
-                strncpy (D[i].pizza_size, texto, 1);
+                strncpy (D.pizza_size, texto, 1);
                 break;
             case 9:
-                strncpy (D[i].pizza_category, texto, 30);
+                strncpy (D.pizza_category, texto, 30);
                 break;
             case 10:
-                strncpy (D[i].pizza_ingredients, texto, 100);
+                strncpy (D.pizza_ingredients, texto, 100);
                 break;
             case 11:
-                strncpy (D[i].pizza_name, texto, 60);
+                strncpy (D.pizza_name, texto, 60);
                 break;
             }
             campo++;
         }
+        fwrite(&D, sizeof(Dados), 1, fb);
         i++;
     }
-    for(j = 0; j < 11; j++){
+    /*for(j = 0; j < 11; j++){
         printf(" %d\n %d\n %s\n %d\n %s\n %s\n %.2f\n %.2f\n %s\n %s\n %s\n %s\n\n",
                D[j].order_details_id, D[j].order_id, D[j].pizza_id, D[j].quantity, D[j].order_date,
                D[j].order_time, D[j].unit_price, D[j].total_price,
                D[j].pizza_size, D[j].pizza_category, D[j].pizza_ingredients,  D[j].pizza_name);
-    }
-    fclose (fp);
+    }*/
+    fclose(fb);
+    fclose(fp);
 }

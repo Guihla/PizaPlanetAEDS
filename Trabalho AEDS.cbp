@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Btree.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Btree.h" />
 		<Unit filename="arquivos.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -39,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="buscar.h" />
+		<Unit filename="indexar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="indexar.h" />
 		<Unit filename="interface.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "interface.h"
+#include "arquivos.h"
+#include "Btree.h"
 
 
 
-char opcoes[][51] = {"Pesquisar",  "Anexar", "Sair"};
+char opcoes[][51] = {"Pesquisar",  "Indexar", "Sair"};
 int x[] = {30, 55, 81};
 int y[] = {24, 24, 24};
 
@@ -35,17 +37,19 @@ void TelaPrincipal () {
 
 
 int main(){
+
+    Ler_Arquivo();
     int escolha = 0;
     do {
         TelaPrincipal();
         escolha = Menu(opcoes, x, y, escolha, 3);
         if(escolha == 0)
-            Buscar_Pizza();
+            Executar_Btree();
         if(escolha == 1)
-            Ler_Arquivo();
+           TelaIndexar();
         if(escolha == 2)
             break;
     } while(escolha != -1);
-    GotoXY(0, 60);
+    GotoXY(0, 45);
     return  0;
 }

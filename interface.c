@@ -51,7 +51,7 @@ int Menu(char opcoes[][51], int x[], int y[], int opcao, int n){
         GotoXY(x[i], y[i]); printf("%s", opcoes[i]);
     }
     do {
-        TextColoreback(WHITE, BLACK);
+        TextColoreback(YELLOW, BLACK);
         GotoXY(x[opcao], y[opcao]);
         printf("%s", opcoes[opcao]);
         tecla = GetTecla();

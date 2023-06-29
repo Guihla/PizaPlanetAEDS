@@ -21,5 +21,7 @@ void Abrir_Arquivo();
 void TelaBuscar();
 void Buscar_Pizza();
 void Fechar_Arquivo();
+void TelaLeitura();
 
 #endif // BUSCAR_H_INCLUDED
+
