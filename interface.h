@@ -31,6 +31,8 @@ void GotoXY(int x, int y);
 void TextColoreback(int letras, int fundo);
 void Borda(int x, int y, int largura, int altura, int tipo, int sombra);
 int Menu(char opcoes[][51], int x[], int y[], int opcao, int n);
-
+void TelaBuscar();
+void TelaNaoExiste();
+void TelaLeitura();
 
 #endif // INTERFACE_H_INCLUDED

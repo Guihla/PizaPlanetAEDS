@@ -1,29 +1,30 @@
 # depslib dependency file v1.0
-1688056446 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
+1688225711 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
 	"interface.h"
+	"arquivos.h"
 
-1687634317 c:\users\gui\desktop\pizaplanetaeds\interface.h
+1688211082 c:\users\gui\desktop\pizaplanetaeds\interface.h
 	<stdio.h>
 	<conio.h>
 	<string.h>
 	<windows.h>
 
-1688062627 source:c:\users\gui\desktop\pizaplanetaeds\main.c
+1688225757 source:c:\users\gui\desktop\pizaplanetaeds\main.c
 	<stdio.h>
 	<stdlib.h>
 	"interface.h"
 	"arquivos.h"
 	"Btree.h"
 
-1688062008 source:c:\users\gui\desktop\pizaplanetaeds\arquivos.c
+1688225711 source:c:\users\gui\desktop\pizaplanetaeds\arquivos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"arquivos.h"
 
-1688056446 c:\users\gui\desktop\pizaplanetaeds\arquivos.h
+1688225711 c:\users\gui\desktop\pizaplanetaeds\arquivos.h
 
-1688062883 source:c:\users\gui\desktop\pizaplanetaeds\buscar.c
+1688210426 source:c:\users\gui\desktop\pizaplanetaeds\buscar.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,20 +32,21 @@
 	"interface.h"
 	"Btree.h"
 
-1688056446 c:\users\gui\desktop\pizaplanetaeds\buscar.h
+1688209907 c:\users\gui\desktop\pizaplanetaeds\buscar.h
 
-1688063120 source:c:\users\gui\desktop\pizaplanetaeds\btree.c
+1688224985 source:c:\users\gui\desktop\pizaplanetaeds\btree.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"BTree.h"
-	"buscar.h"
+	"interface.h"
+	"arquivos.h"
 
-1688061159 c:\users\gui\desktop\pizaplanetaeds\btree.h
+1688224864 c:\users\gui\desktop\pizaplanetaeds\btree.h
 	<stdio.h>
 	<stdlib.h>
 
-1688061841 source:c:\users\gui\desktop\pizaplanetaeds\indexar.c
+1688210530 source:c:\users\gui\desktop\pizaplanetaeds\indexar.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -53,6 +55,6 @@
 	"arquivos.h"
 	"Btree.h"
 
-1688061008 c:\users\gui\desktop\pizaplanetaeds\indexar.h
+1688177901 c:\users\gui\desktop\pizaplanetaeds\indexar.h
 	"Btree.h"
 

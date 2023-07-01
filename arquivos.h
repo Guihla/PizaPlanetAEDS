@@ -14,12 +14,12 @@ struct dados
     char pizza_size[2];
     char pizza_category[31];
     char pizza_ingredients[101];
-    char pizza_name[61];
+    char pizza_name[71];
 };
 typedef struct dados Dados;
 
 void Ler_Arquivo();
-void Telaarquivo();
+void Impressao();
 
 #endif // ARQUIVO_H_INCLUDED
 

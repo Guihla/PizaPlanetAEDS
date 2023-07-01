@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAXITENS 20
 #include "BTree.h"
-#include "buscar.h"
+#include "interface.h"
+#include "arquivos.h"
 
 Dados D;
 
@@ -40,8 +40,7 @@ BTree* DivideNo(BTree* No){
     Novo -> TotalChaves = mediana;
     Novo -> EhFolha = No -> EhFolha;
     // transfere metade para novo no
-    for(i = mediana+1, j = 0; i < No->TotalChaves; i++, j++)
-    {
+    for(i = mediana+1, j = 0; i < No->TotalChaves; i++, j++){
         Novo -> index[j] = No -> index[i];
         Novo -> Chaves[j] = No -> Chaves[i];
         Novo -> Filhos[j] = No -> Filhos[i];
@@ -73,6 +72,7 @@ BTree* DivideNo(BTree* No){
             else break;
         }
         No->Pai->Chaves[i] = No->Chaves[mediana];
+        No ->Pai->index[i] = No -> index[mediana];
         No->Pai->Filhos[i+1] = Novo;
         No->Pai->TotalChaves++;*/
         InserenoNo(No -> Pai, No->Chaves[mediana], No->index[mediana], Novo);
@@ -124,7 +124,7 @@ BTree* InsereBTree(BTree* No, int index, int Chave){
 
 BTree* BuscaBTree(BTree* No, int Chave){
     int i;
-    int Tot = No->TotalChaves;
+    int Tot = No -> TotalChaves;
     //printf("*");
     for(i = 0; i < Tot; i++){
         if(No -> Chaves[i] == Chave)return No;
@@ -138,7 +138,6 @@ BTree* BuscaBTree(BTree* No, int Chave){
         if(!No->EhFolha)
             return BuscaBTree(No->Filhos[i], Chave);
     //}
-
     return NULL;
 }
 
@@ -167,81 +166,83 @@ void Imprime(BTree *raiz){
 }
 
 
-void Imprimir_Dados(){
-    GotoXY(31, 3); printf("%d", D.order_details_id);
-    GotoXY(34, 6); printf("%d", D.order_id);
-    GotoXY(30, 9); printf("%s", D.pizza_id);
-    GotoXY(29, 12); printf(" %d", D.quantity);
-    GotoXY(33, 15); printf("%s", D.order_date);
-    GotoXY(33, 18); printf("%s", D.order_time);
-    GotoXY(31, 21); printf("%s", D.pizza_ingredients);
-    GotoXY(74, 3); printf("%.2f", D.unit_price);
-    GotoXY(70, 6); printf("%.2f", D.total_price);
-    GotoXY(66, 9); printf("%s", D.pizza_size);
-    GotoXY(77, 12); printf("%s", D.pizza_category);
-    GotoXY(72, 15); printf("%s", D.pizza_name);
-}
-
-void Executar_Btree(){
-    FILE *fp = fopen("DadosPizzaria.txt","rb");
-    int i, Chave;
-    BTree* raiz, *Buscado;
-    raiz = Executar_Indexar();
-    int id;
-    char Opcoes[][51] = {"","Sair"};
-    char Selecao[][51] = {"Nova pesquisa", "Sair"};
-    char NaoExiste[][51] = {"Nova Pesquisa", "Sair"};
-    int Escolha = 0, Selecionar = 0, Nao = 0;
+BTree *BuscarID(BTree *No){
+    int Escolha = 0, id;
+    BTree * Buscado;
     int x[] = {47, 55};
     int y[] = {14, 24};
-    int a[] = {44, 67};
-    int b[] = {25, 25};
-    int e[] = {44, 67};
-    int f[] = {25, 25};
-    do{
-        TelaBuscar();
-        Borda(52, 23, 15, 2, 0,0);
-        Escolha = Menu(Opcoes, x, y, Escolha, 2);
-        if(Escolha == 0){
-            scanf("%d", &id);
-            Buscado = BuscaBTree(raiz, id);
-            if(Buscado == NULL){
-                TelaNaoExiste();
-                Borda(42, 24, 15, 2, 0,0);
-                Borda(65, 24, 15, 2, 0,0);
-                Nao = Menu(NaoExiste, e, f, Nao, 2);
-                if(Nao == 0)
-                if(Nao == 1)break;
-            }
-            else{
-                TelaLeitura();
-                fseek(fp, Buscado -> index, SEEK_SET);
-                fread(&D, sizeof(Dados), 0, fp);
-                Imprimir_Dados();
-                Borda(42, 24, 15, 2, 0,0);
-                Borda(65, 24, 15, 2, 0,0);
-                Selecionar = Menu(Selecao, a, b, Selecionar, 2);
-                if(Selecionar == 0)
-                if(Selecionar == 1)break;
-            }
+    TextColoreback(GREEN, BLACK);
+    Borda(3, 1, 111, 26, 1, 0);
+    GotoXY(17, 14); printf("             ID do pedido: ");
+    Borda(46, 13, 30, 2, 0, 0);
+    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    char Opcoes[][51] = {"","Sair"};
+    Borda(52, 23, 15, 2, 0,0);
+    Escolha = Menu(Opcoes, x, y, Escolha, 2);
+    if(Escolha == 0){
+        scanf("%d", &id);
+        Buscado = BuscaBTree(No, id);
     }
-    }while(Escolha != 1);
-    fclose(fp);
+    if(Escolha == 1)
+    return Buscado;
 }
 
 
-
-    /*
-    Buscado = BuscaBTree(raiz, Chave);
-    printf("\n");
-
-    if(Buscado == NULL)
-    {
-        printf("Chave nao encontrada!!\n");
+BTree* IndexarBTree(BTree* No){
+    int posicao;
+    FILE *fp = fopen("DadosPizzaria.txt","rb");
+    fseek(fp, 0, SEEK_SET);
+    while(fread(&D, sizeof(Dados), 1, fp)){
+        posicao = ftell(fp) - sizeof(Dados);
+        No = InsereBTree(No, posicao, D.order_details_id);
     }
-    else
-    {
-        printf("Chave Encontrada!!\n");
-        printf("Em %d\n", Buscado->Chaves[0]);
+    fclose(fp);
+    TextColoreback(WHITE, BLACK);
+    Borda(3, 1, 111, 26, 1, 0);
+    GotoXY(49, 15); printf("Indexado com Sucesso!");
+    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    Borda(52, 23, 15, 2, 0,0);
+    char Indexando[][51] = {"Sair"};
+    int Selecione = 0;
+    int c[] = {58};
+    int d[] = {24};
+    Selecione = Menu(Indexando, c, d, Selecione, 1);
+    //GotoXY(0,60);Imprime(No);
+    return No;
+}
+
+
+int BuscaBinaria(int v[], int n, int x){
+  int ini = 0, fim = n-1;
+  while(ini <= fim){
+    int meio = (ini + fim)/2;
+    if(x < v[meio])fim = meio-1;
+    else if(x > v[meio])ini = meio+1;
+    else return meio;
+  }
+  return -1;
+}
+
+int Encontrar_Binaria(int id){
+    int v[48620], i = 1, res;
+    FILE *fp = fopen("DadosPizzaria.txt","rb");
+    fseek(fp, 0, SEEK_SET);
+    while(fread(&D, sizeof(Dados), 1, fp)){
+        v[i] = D.order_details_id;
+        i++;
+    }
+    /*for(int j = 0; j < 48621; j++){
+        printf("%d\n", v[j]);
     }*/
+    res = BuscaBinaria(v, 48620, id);
+    return res;
+}
 

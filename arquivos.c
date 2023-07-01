@@ -5,34 +5,28 @@
 
 Dados D;
 
+
 void Ler_Arquivo(){
     FILE *fb = fopen("DadosPizzaria.txt","wb+");
     char linha[1000000], texto[1000000];
-    char *sub, *sub2;
-    int campo = 0, i = 0, j, tam, t, a, aspas;
+    int campo = 0, tam, t, a;
 
     FILE *fp = fopen("Banco de Dados.csv", "r");
     if(fp == NULL){
         printf("Nao abriu Banco de Dados.csv\n");
         exit(1);
     }
-    fscanf(fp, " %[^\n]", linha); // Linha dos nomes das colunas
-    //printf("%s\n", linha); // Mostra a linha
-    while (fscanf (fp, " %[^\n]", linha)!=EOF){
-        //printf("%s\n", linha); // Mostra a linha
-        //if(i > 10) break; // testa com os primeiros 20
+    fscanf(fp, " %[^\n]", linha);
+    while(fscanf (fp, " %[^\n]", linha) != EOF){
         campo = 0;
         texto[0] = 0;
         tam = strlen(linha);
         memset(&D, 0, sizeof(Dados));
         for(t = 0; t < tam; t++){
             a = 0;
-            aspas = 0;
             while(linha[t] != ';' && t < tam){
                 texto[a++] = linha[t++];
                 if(t > 0 && linha[t-1] == '\"'){
-                    //printf("\n\naspas\n\n");
-                    //t++;
                     a--;
                     while(linha[t] != '\"' && t < tam){
                         texto[a++] = linha[t++];
@@ -49,13 +43,13 @@ void Ler_Arquivo(){
                 D.order_id = atoi(texto);
                 break;
             case 2:
-                strncpy(D.pizza_id, texto, 99); //99 pq é o tamanho da string menos 1
+                strncpy(D.pizza_id, texto, 99);
                 break;
             case 3:
                 D.quantity = atoi(texto);
                 break;
             case 4:
-                strncpy (D.order_date, texto, 10); //atoi transforma string em inteiro
+                strncpy (D.order_date, texto, 10);
                 break;
             case 5:
                 strncpy (D.order_time, texto, 8);
@@ -76,20 +70,34 @@ void Ler_Arquivo(){
                 strncpy (D.pizza_ingredients, texto, 100);
                 break;
             case 11:
-                strncpy (D.pizza_name, texto, 60);
+                strncpy (D.pizza_name, texto, 70);
                 break;
             }
             campo++;
         }
+        fseek(fb, 0, SEEK_END);
         fwrite(&D, sizeof(Dados), 1, fb);
-        i++;
     }
-    /*for(j = 0; j < 11; j++){
-        printf(" %d\n %d\n %s\n %d\n %s\n %s\n %.2f\n %.2f\n %s\n %s\n %s\n %s\n\n",
-               D[j].order_details_id, D[j].order_id, D[j].pizza_id, D[j].quantity, D[j].order_date,
-               D[j].order_time, D[j].unit_price, D[j].total_price,
-               D[j].pizza_size, D[j].pizza_category, D[j].pizza_ingredients,  D[j].pizza_name);
-    }*/
-    fclose(fb);
     fclose(fp);
+    fclose(fb);
+}
+
+void Impressao(){
+    //Ler_Arquivo();
+    int cont = 0;
+    FILE *fb = fopen("DadosPizzaria.txt","rb+");
+    if(fb == NULL){
+        printf("Nao abriu DadosPizzaria.txt\n");
+        exit(1);
+    }
+    fseek(fb, 0, SEEK_SET);
+    while(fread(&D, sizeof(Dados), 1, fb)){
+        printf("%d %d %s %d %s %s %.2lf %.2lf %s %s %s %s \n\n", D.order_details_id,
+        D.order_id, D.pizza_id, D.quantity, D.order_date,
+        D.order_time, D.unit_price, D.total_price, D.pizza_size,
+        D.pizza_category, D.pizza_ingredients, D.pizza_name);
+        cont++;
+        if(cont == 1) break;
+    }
+    fclose(fb);;
 }
