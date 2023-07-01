@@ -165,30 +165,23 @@ void Imprime(BTree *raiz){
     nivel--;
 }
 
-
-BTree *BuscarID(BTree *No){
-    int Escolha = 0, id;
-    BTree * Buscado;
-    int x[] = {47, 55};
-    int y[] = {14, 24};
-    TextColoreback(GREEN, BLACK);
-    Borda(3, 1, 111, 26, 1, 0);
-    GotoXY(17, 14); printf("             ID do pedido: ");
-    Borda(46, 13, 30, 2, 0, 0);
-    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
-    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
-    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
-    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
-    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
-    char Opcoes[][51] = {"","Sair"};
-    Borda(52, 23, 15, 2, 0,0);
-    Escolha = Menu(Opcoes, x, y, Escolha, 2);
-    if(Escolha == 0){
-        scanf("%d", &id);
-        Buscado = BuscaBTree(No, id);
+int BuscaindexnaBTree(BTree* No, int Chave){
+    int i;
+    int Tot = No -> TotalChaves;
+    //printf("*");
+    for(i = 0; i < Tot; i++){
+        if(No -> Chaves[i] == Chave) return No ->index[i]; // retorna o índice e não o ponteiro
+        if(No -> Chaves[i] > Chave){
+            if(!No -> EhFolha)
+                return BuscaindexnaBTree(No -> Filhos[i], Chave);
+            break;
+        }
     }
-    if(Escolha == 1)
-    return Buscado;
+    //if(i >= Tot){
+        if(!No->EhFolha)
+            return BuscaindexnaBTree(No->Filhos[i], Chave);
+    //}
+    return -1; // Se não encontrar retorna -1
 }
 
 
@@ -215,6 +208,7 @@ BTree* IndexarBTree(BTree* No){
     int c[] = {58};
     int d[] = {24};
     Selecione = Menu(Indexando, c, d, Selecione, 1);
+    //Imprime(No);
     //GotoXY(0,60);Imprime(No);
     return No;
 }

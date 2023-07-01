@@ -173,3 +173,44 @@ void TelaPrincipal (){
     GotoXY(46, 19); printf("             ||   (_)   __..-'");
     GotoXY(46, 20); printf("              \\__..--""");
 }
+
+void TelaComparacao(){
+    TextColoreback(WHITE, BLACK);
+    Borda(0, 0, 118, 28, 1, 0);
+    Borda(10, 10, 30, 2, 0,0);
+    Borda(80, 10, 30, 2, 0,0);
+    Borda(10, 15, 30, 2, 0,0);
+    Borda(80, 15, 30, 2, 0,0);
+    //Borda(88, 23, 15, 2, 0,0);
+
+    GotoXY(10, 1); printf("    ____                                                                    ____ ______             ");
+    GotoXY(10, 2); printf("   / __ )__  ________________ _              _   _______                   / __ )_  __/___ ___  ___ ");
+    GotoXY(10, 3); printf("  / __  / / / / ___/ ___/ __ `/             | | / / ___/                  / __  |/ / / ___/ _ \\/ _ \\""");
+    GotoXY(10, 4); printf(" / /_/ / /_/ (__  ) /__/ /_/ /              | |/ (__  )                  / /_/ // / / /  / ___/  __/");
+    GotoXY(10, 5); printf("/_____/\__,__/____/\\___/\__,__/               |___/____/                  /_____//_/ /_/   \\___/\\___/ ");
+    GotoXY(60, 7); printf("|");
+    GotoXY(60, 8); printf("|");
+    GotoXY(60, 9); printf("|");
+    GotoXY(60, 10); printf("|");
+    GotoXY(60, 11); printf("|");
+    GotoXY(60, 12); printf("|");
+    GotoXY(60, 13); printf("|");
+    GotoXY(60, 14); printf("|");
+    GotoXY(60, 15); printf("|");
+    GotoXY(60, 16); printf("|");
+    GotoXY(60, 17); printf("|");
+    GotoXY(60, 18); printf("|");
+    GotoXY(60, 19); printf("|");
+    GotoXY(60, 20); printf("|");
+    GotoXY(60, 21); printf("|");
+    GotoXY(15, 9); printf("Tempo de Execucao: ");
+    GotoXY(13, 14); printf("Quantidade de Acessos: ");
+    GotoXY(85, 9); printf("Tempo de Execucao: ");
+    GotoXY(83, 14); printf("Quantidade de Acessos: ");
+    char Comparar[][51] = {"Sair"};
+    int Comparacao = 0;
+    int p[] = {58};
+    int q[] = {24};
+    Borda(52, 23, 15, 2, 0,0);
+    Comparacao = Menu(Comparar, p, q, Comparacao, 1);
+}

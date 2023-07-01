@@ -2,29 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="interface.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="47" topLine="114" />
-		</Cursor>
-	</File>
-	<File name="Btree.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6798" topLine="149" />
-		</Cursor>
-	</File>
-	<File name="arquivos.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2998" topLine="61" />
+			<Cursor1 position="991" topLine="12" />
 		</Cursor>
 	</File>
 	<File name="Btree.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="654" topLine="0" />
+			<Cursor1 position="281" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Btree.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="411" topLine="12" />
+			<Cursor1 position="5962" topLine="177" />
 		</Cursor>
 	</File>
 	<File name="interface.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -32,9 +22,19 @@
 			<Cursor1 position="578" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="arquivos.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="245" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="arquivos.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="451" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="interface.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7828" topLine="157" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

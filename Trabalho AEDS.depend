@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1688225711 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
+1688237060 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
 	"interface.h"
 	"arquivos.h"
 
@@ -9,7 +9,7 @@
 	<string.h>
 	<windows.h>
 
-1688225757 source:c:\users\gui\desktop\pizaplanetaeds\main.c
+1688238234 source:c:\users\gui\desktop\pizaplanetaeds\main.c
 	<stdio.h>
 	<stdlib.h>
 	"interface.h"
@@ -34,7 +34,7 @@
 
 1688209907 c:\users\gui\desktop\pizaplanetaeds\buscar.h
 
-1688224985 source:c:\users\gui\desktop\pizaplanetaeds\btree.c
+1688237856 source:c:\users\gui\desktop\pizaplanetaeds\btree.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -42,7 +42,7 @@
 	"interface.h"
 	"arquivos.h"
 
-1688224864 c:\users\gui\desktop\pizaplanetaeds\btree.h
+1688234610 c:\users\gui\desktop\pizaplanetaeds\btree.h
 	<stdio.h>
 	<stdlib.h>
 

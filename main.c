@@ -12,9 +12,9 @@ int x[] = {20, 45, 68, 94};
 int y[] = {24, 24, 24, 24};
 
 int main(){
-
-    BTree *raiz = NovaBTree(), *No, *Buscado;
-    int id, cont=0, Nao = 0, res;
+    Ler_Arquivo();
+    BTree *raiz = NovaBTree(), *No;
+    int id, cont=0, Nao = 0, res, buscado;
     int escolha = 0;
     do {
         TelaPrincipal();
@@ -22,12 +22,12 @@ int main(){
         if(escolha == 0){//BUSCAR
             TelaBuscar();
             GotoXY(47, 14);scanf("%d", &id);
-            Buscado = BuscaBTree(No, id);
-            if(Buscado == NULL){
+            buscado = BuscaindexnaBTree(No, id);
+            if(buscado == -1){
                 TelaNaoExiste();
             }else{
                 FILE *fp = fopen("DadosPizzaria.txt","rb+");
-                fseek(fp, Buscado -> index, SEEK_SET);
+                fseek(fp, buscado, SEEK_SET);
                 fread(&D, sizeof(Dados), 1, fp);
                 TelaLeitura();
                 fclose(fp);
@@ -35,7 +35,6 @@ int main(){
         }
         if(escolha == 1){//INDEXAR
             No = IndexarBTree(raiz);
-
         }
         if(escolha == 2){
             TelaBuscar();
@@ -43,12 +42,13 @@ int main(){
             res = Encontrar_Binaria(id);
             if(res == -1){
                 TelaNaoExiste();
-            }//ELSE IMPRIMIR TEMPO E CONTAGEM DE ACESSO
+            }else{
+                TelaComparacao();
+            }
         }
         if(escolha == 3){
             break;
         }
-            //break;}//SAIR MENU
     }while(escolha != -1);
     GotoXY(0, 45);
     return  0;

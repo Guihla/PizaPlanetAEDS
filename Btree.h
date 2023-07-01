@@ -5,14 +5,15 @@
 
 #define ORDEM 7
 
-typedef struct btree{
+struct btree{
     int TotalChaves;
     int EhFolha;
     int index[ORDEM];
     int Chaves[ORDEM];
     struct btree* Filhos[ORDEM+1];
     struct btree* Pai;
-} BTree;
+};
+typedef struct btree BTree;
 
 BTree* NovaBTree();
 BTree* InsereBTree(BTree* No, int index,int Chave);
@@ -25,4 +26,5 @@ BTree* IndexarBTree(BTree* No);
 BTree *BuscarID(BTree *No);
 int BuscaBinaria(int v[], int n, int x);
 int Encontrar_Binaria(int id);
+
 #endif // BTREE_H_INCLUDED
