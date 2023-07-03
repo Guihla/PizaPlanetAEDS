@@ -34,5 +34,6 @@ int Menu(char opcoes[][51], int x[], int y[], int opcao, int n);
 void TelaBuscar();
 void TelaNaoExiste();
 void TelaLeitura();
+int TelaComparacao(int buscab, int contador);
 
 #endif // INTERFACE_H_INCLUDED

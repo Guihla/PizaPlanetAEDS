@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "interface.h"
 #include "arquivos.h"
 #include "Btree.h"
+int cont;
 
 Dados D;
 
 char opcoes[][51] = {"Pesquisar",  "Indexar", "Comparar", "Sair"};
-char NaoExiste[][51] = {"Sair"};
 int x[] = {20, 45, 68, 94};
 int y[] = {24, 24, 24, 24};
 
 int main(){
     Ler_Arquivo();
     BTree *raiz = NovaBTree(), *No;
-    int id, cont=0, Nao = 0, res, buscado;
+    int id, buscado, buscab;
     int escolha = 0;
     do {
         TelaPrincipal();
@@ -36,21 +37,18 @@ int main(){
         if(escolha == 1){//INDEXAR
             No = IndexarBTree(raiz);
         }
-        if(escolha == 2){
+        if(escolha == 2){//COMPARAR
+            cont = 0;
             TelaBuscar();
             GotoXY(47, 14);scanf("%d", &id);
-            res = Encontrar_Binaria(id);
-            if(res == -1){
-                TelaNaoExiste();
-            }else{
-                TelaComparacao();
-            }
+            cont = BuscaBTreeCont(No, id);
+            buscab = AcessoBinariaQuant(id);
+            TelaComparacao(buscab, cont);
         }
-        if(escolha == 3){
+        if(escolha == 3){//SAIR
             break;
         }
     }while(escolha != -1);
     GotoXY(0, 45);
     return  0;
 }
-

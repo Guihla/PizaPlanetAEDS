@@ -22,4 +22,3 @@ void Ler_Arquivo();
 void Impressao();
 
 #endif // ARQUIVO_H_INCLUDED
-

@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "BTree.h"
 #include "interface.h"
 #include "arquivos.h"
+int cont;
 
 Dados D;
 
@@ -88,8 +90,6 @@ BTree* DivideNo(BTree* No){
     return No->Pai;
 }
 
-
-
 BTree* InsereBTree(BTree* No, int index, int Chave){
     int i;
     if(No->EhFolha){
@@ -119,26 +119,6 @@ BTree* InsereBTree(BTree* No, int index, int Chave){
     }
     if(No->Pai != NULL) return No->Pai;
     return No;
-}
-
-
-BTree* BuscaBTree(BTree* No, int Chave){
-    int i;
-    int Tot = No -> TotalChaves;
-    //printf("*");
-    for(i = 0; i < Tot; i++){
-        if(No -> Chaves[i] == Chave)return No;
-        if(No -> Chaves[i] > Chave){
-            if(!No -> EhFolha)
-                return BuscaBTree(No -> Filhos[i], Chave);
-            break;
-        }
-    }
-    //if(i >= Tot){
-        if(!No->EhFolha)
-            return BuscaBTree(No->Filhos[i], Chave);
-    //}
-    return NULL;
 }
 
 void Imprime(BTree *raiz){
@@ -184,6 +164,26 @@ int BuscaindexnaBTree(BTree* No, int Chave){
     return -1; // Se não encontrar retorna -1
 }
 
+int BuscaBTreeCont(BTree* No, int Chave){
+    int i;
+    int Tot = No-> TotalChaves;
+    for(i = 0; i < Tot; i++){
+        if(No->Chaves[i] == Chave)
+            return 1;
+        if(No->Chaves[i] > Chave){
+            if(!No->EhFolha)
+                return BuscaBTreeCont(No->Filhos[i], Chave) + 1;
+            break;
+        }
+
+    }
+    //if(i >= Tot){
+    if(!No->EhFolha)
+        return BuscaBTreeCont(No->Filhos[i], Chave) + 1;
+    //}
+    return 0;
+}
+
 
 BTree* IndexarBTree(BTree* No){
     int posicao;
@@ -213,7 +213,6 @@ BTree* IndexarBTree(BTree* No){
     return No;
 }
 
-
 int BuscaBinaria(int v[], int n, int x){
   int ini = 0, fim = n-1;
   while(ini <= fim){
@@ -225,18 +224,32 @@ int BuscaBinaria(int v[], int n, int x){
   return -1;
 }
 
-int Encontrar_Binaria(int id){
-    int v[48620], i = 1, res;
+int AcessoBinaria(int v[], int n, int x){
+  int ini = 0, fim = n-1, cont = 0;
+  while(ini <= fim){
+    int meio = (ini + fim)/2;
+    if(x < v[meio]){
+        fim = meio-1;
+    }
+    else if(x > v[meio]){
+        ini = meio+1;
+    }
+    else return meio;
+    cont++;
+  }
+  return cont;
+}
+
+int AcessoBinariaQuant(int id){
+    int v[48620], i = 0, cont;
     FILE *fp = fopen("DadosPizzaria.txt","rb");
     fseek(fp, 0, SEEK_SET);
     while(fread(&D, sizeof(Dados), 1, fp)){
         v[i] = D.order_details_id;
         i++;
     }
-    /*for(int j = 0; j < 48621; j++){
-        printf("%d\n", v[j]);
-    }*/
-    res = BuscaBinaria(v, 48620, id);
-    return res;
+    cont = AcessoBinaria(v, 48620, id);
+    return cont;
 }
+
 
