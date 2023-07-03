@@ -19,6 +19,5 @@ struct dados
 typedef struct dados Dados;
 
 void Ler_Arquivo();
-void Impressao();
 
 #endif // ARQUIVO_H_INCLUDED

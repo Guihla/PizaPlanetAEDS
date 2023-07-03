@@ -177,13 +177,10 @@ int BuscaBTreeCont(BTree* No, int Chave){
         }
 
     }
-    //if(i >= Tot){
     if(!No->EhFolha)
         return BuscaBTreeCont(No->Filhos[i], Chave) + 1;
-    //}
     return 0;
 }
-
 
 BTree* IndexarBTree(BTree* No){
     int posicao;
@@ -194,38 +191,34 @@ BTree* IndexarBTree(BTree* No){
         No = InsereBTree(No, posicao, D.order_details_id);
     }
     fclose(fp);
-    TextColoreback(WHITE, BLACK);
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(3, 1, 111, 26, 1, 0);
+    TextColoreback(WHITE, BLACK);
     GotoXY(49, 15); printf("Indexado com Sucesso!");
-    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
-    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
-    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
-    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
-    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    TextColoreback(LIGHT_RED, BLACK);
+    GotoXY(16, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(16, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(16, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(16, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(16, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    GotoXY(82, 2); printf("          ,MMM8&&&.");
+    GotoXY(82, 3); printf("     _...MMMMM88&&&&..._");
+    GotoXY(82, 4); printf("  .::'''MMMMM88&&&&&&'''::.");
+    GotoXY(82, 5); printf(" ::     MMMMM88&&&&&&     ::");
+    GotoXY(82, 6); printf(" '::....MMMMM88&&&&&&....::'");
+    GotoXY(82, 7); printf("    `''''MMMMM88&&&&''''`");
+    GotoXY(82, 8); printf("          'MMM8&&&'");
     Borda(52, 23, 15, 2, 0,0);
     char Indexando[][51] = {"Sair"};
     int Selecione = 0;
     int c[] = {58};
     int d[] = {24};
     Selecione = Menu(Indexando, c, d, Selecione, 1);
-    //Imprime(No);
-    //GotoXY(0,60);Imprime(No);
     return No;
 }
 
-int BuscaBinaria(int v[], int n, int x){
-  int ini = 0, fim = n-1;
-  while(ini <= fim){
-    int meio = (ini + fim)/2;
-    if(x < v[meio])fim = meio-1;
-    else if(x > v[meio])ini = meio+1;
-    else return meio;
-  }
-  return -1;
-}
-
 int AcessoBinaria(int v[], int n, int x){
-  int ini = 0, fim = n-1, cont = 0;
+  int ini = 0, fim = n-1, cont = 1;
   while(ini <= fim){
     int meio = (ini + fim)/2;
     if(x < v[meio]){
@@ -251,5 +244,3 @@ int AcessoBinariaQuant(int id){
     cont = AcessoBinaria(v, 48620, id);
     return cont;
 }
-
-

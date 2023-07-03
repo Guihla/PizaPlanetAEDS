@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "interface.h"
 #include "arquivos.h"
 #include "Btree.h"
@@ -22,6 +21,7 @@ int main(){
         escolha = Menu(opcoes, x, y, escolha, 4);
         if(escolha == 0){//BUSCAR
             TelaBuscar();
+            TextColoreback(WHITE, BLACK);
             GotoXY(47, 14);scanf("%d", &id);
             buscado = BuscaindexnaBTree(No, id);
             if(buscado == -1){
@@ -40,8 +40,9 @@ int main(){
         if(escolha == 2){//COMPARAR
             cont = 0;
             TelaBuscar();
+            TextColoreback(WHITE, BLACK);
             GotoXY(47, 14);scanf("%d", &id);
-            cont = BuscaBTreeCont(No, id);
+            cont += BuscaBTreeCont(No, id);
             buscab = AcessoBinariaQuant(id);
             TelaComparacao(buscab, cont);
         }

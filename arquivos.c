@@ -81,23 +81,3 @@ void Ler_Arquivo(){
     fclose(fp);
     fclose(fb);
 }
-
-void Impressao(){
-    //Ler_Arquivo();
-    int cont = 0;
-    FILE *fb = fopen("DadosPizzaria.txt","rb+");
-    if(fb == NULL){
-        printf("Nao abriu DadosPizzaria.txt\n");
-        exit(1);
-    }
-    fseek(fb, 0, SEEK_SET);
-    while(fread(&D, sizeof(Dados), 1, fb)){
-        printf("%d %d %s %d %s %s %.2lf %.2lf %s %s %s %s \n\n", D.order_details_id,
-        D.order_id, D.pizza_id, D.quantity, D.order_date,
-        D.order_time, D.unit_price, D.total_price, D.pizza_size,
-        D.pizza_category, D.pizza_ingredients, D.pizza_name);
-        cont++;
-        if(cont == 1) break;
-    }
-    fclose(fb);;
-}

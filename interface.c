@@ -54,7 +54,7 @@ int Menu(char opcoes[][51], int x[], int y[], int opcao, int n){
         GotoXY(x[i], y[i]); printf("%s", opcoes[i]);
     }
     do {
-        TextColoreback(LIGHT_CYAN, BLACK);
+        TextColoreback(LIGHT_GRAY, BLACK);
         GotoXY(x[opcao], y[opcao]);
         printf("%s", opcoes[opcao]);
         tecla = GetTecla();
@@ -71,26 +71,44 @@ int Menu(char opcoes[][51], int x[], int y[], int opcao, int n){
 }
 
 void TelaBuscar(){
-    TextColoreback(WHITE, BLACK);
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(3, 1, 111, 26, 1, 0);
+    TextColoreback(WHITE, BLACK);
     GotoXY(17, 14); printf("             ID do pedido: ");
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(46, 13, 30, 2, 0, 0);
-    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
-    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
-    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
-    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
-    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    GotoXY(16, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(16, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(16, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(16, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(16, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    GotoXY(82, 2); printf("          ,MMM8&&&.");
+    GotoXY(82, 3); printf("     _...MMMMM88&&&&..._");
+    GotoXY(82, 4); printf("  .::'''MMMMM88&&&&&&'''::.");
+    GotoXY(82, 5); printf(" ::     MMMMM88&&&&&&     ::");
+    GotoXY(82, 6); printf(" '::....MMMMM88&&&&&&....::'");
+    GotoXY(82, 7); printf("    `''''MMMMM88&&&&''''`");
+    GotoXY(82, 8); printf("          'MMM8&&&'");
 }
 
 void TelaNaoExiste(){
-    TextColoreback(WHITE, BLACK);
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(3, 1, 111, 26, 1, 0);
+    TextColoreback(WHITE, BLACK);
     GotoXY(51, 15); printf("ID nao encontrado!");
-    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
-    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
-    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
-    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
-    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    TextColoreback(LIGHT_RED, BLACK);
+    GotoXY(16, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(16, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(16, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(16, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(16, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    GotoXY(82, 2); printf("          ,MMM8&&&.");
+    GotoXY(82, 3); printf("     _...MMMMM88&&&&..._");
+    GotoXY(82, 4); printf("  .::'''MMMMM88&&&&&&'''::.");
+    GotoXY(82, 5); printf(" ::     MMMMM88&&&&&&     ::");
+    GotoXY(82, 6); printf(" '::....MMMMM88&&&&&&....::'");
+    GotoXY(82, 7); printf("    `''''MMMMM88&&&&''''`");
+    GotoXY(82, 8); printf("          'MMM8&&&'");
     Borda(52, 23, 15, 2, 0,0);
     char Nao[][51] = {"Sair"};
     int Selecao = 0;
@@ -102,7 +120,7 @@ void TelaNaoExiste(){
 
 
 void TelaLeitura(){
-    TextColoreback(WHITE, BLACK);
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(3, 1, 111, 26, 1, 0);
     Borda(24, 2, 15, 2, 0,0);
     Borda(24, 5, 15, 2, 0,0);
@@ -116,6 +134,7 @@ void TelaLeitura(){
     Borda(73, 8, 15, 2, 0,0);
     Borda(73, 11, 15, 2, 0,0);
     Borda(73, 14, 40, 2, 0,0);
+    TextColoreback(WHITE, BLACK);
     GotoXY(7, 3); printf("ID do Pedido:");
     GotoXY(7, 6); printf("Ordem do Pedido:");
     GotoXY(7, 9); printf("Id da Pizza:");
@@ -149,17 +168,28 @@ void TelaLeitura(){
 }
 
 void TelaPrincipal (){
-    TextColoreback(WHITE, BLACK);
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(0, 0, 118, 28, 1, 0);
-    GotoXY(33, 2); printf("    ____  _                    ____  __                 __");
-    GotoXY(33, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
-    GotoXY(33, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
-    GotoXY(33, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
-    GotoXY(33, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    TextColoreback(LIGHT_RED, BLACK);
+    GotoXY(16, 2); printf("    ____  _                    ____  __                 __");
+    GotoXY(16, 3); printf("   / __ \\(_)_______  ____ _   / __ \\/ /___ _____  ___  / /_");
+    GotoXY(16, 4); printf("  / /_/ / /_  /_  / / __ `/  / /_/ / / __ `/ __ \\/ _ \\/ __/");
+    GotoXY(16, 5); printf(" / ____/ / / /_/ /_/ /_/ /  / ____/ / /_/ / / / /  __/ /_ ");
+    GotoXY(16, 6); printf("/_/   /_/ /___/___/\\__,_/  /_/   /_/\\__,_/_/ /_/\____/\\\__/");
+    TextColoreback(LIGHT_RED, BLACK);
+    GotoXY(82, 2); printf("          ,MMM8&&&.");
+    GotoXY(82, 3); printf("     _...MMMMM88&&&&..._");
+    GotoXY(82, 4); printf("  .::'''MMMMM88&&&&&&'''::.");
+    GotoXY(82, 5); printf(" ::     MMMMM88&&&&&&     ::");
+    GotoXY(82, 6); printf(" '::....MMMMM88&&&&&&....::'");
+    GotoXY(82, 7); printf("    `''''MMMMM88&&&&''''`");
+    GotoXY(82, 8); printf("          'MMM8&&&'");
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(16, 23, 15, 2, 0,0);
     Borda(40, 23, 15, 2, 0,0);
     Borda(64, 23, 15, 2, 0,0);
     Borda(88, 23, 15, 2, 0,0);
+    TextColoreback(BROWN, BLACK);
     GotoXY(46, 9); printf("       _....._");
     GotoXY(46, 10); printf("   _.:`.--|--.`:._");
     GotoXY(46, 11); printf("  .: .'\o  | o /'. '.");
@@ -175,10 +205,11 @@ void TelaPrincipal (){
 }
 
 int TelaComparacao(int buscab, int contador){
-    TextColoreback(WHITE, BLACK);
+    TextColoreback(LIGHT_RED, BLACK);
     Borda(0, 0, 118, 28, 1, 0);
     Borda(10, 13, 30, 2, 0,0);
     Borda(80, 13, 30, 2, 0,0);
+    Borda(52, 23, 15, 2, 0,0);
     GotoXY(10, 1); printf("    ____                                                                    ____ ______             ");
     GotoXY(10, 2); printf("   / __ )__  ________________ _              _   _______                   / __ )_  __/___ ___  ___ ");
     GotoXY(10, 3); printf("  / __  / / / / ___/ ___/ __ `/             | | / / ___/                  / __  |/ / / ___/ _ \\/ _ \\""");
@@ -199,13 +230,13 @@ int TelaComparacao(int buscab, int contador){
     GotoXY(60, 19); printf("|");
     GotoXY(60, 20); printf("|");
     GotoXY(60, 21); printf("|");
+    TextColoreback(WHITE, BLACK);
     GotoXY(15, 12); printf("Quantidade de Acessos: ");
     GotoXY(83, 12); printf("Quantidade de Acessos: ");
     char Comparar[][51] = {"Sair"};
     int Comparacao = 0;
     int p[] = {58};
     int q[] = {24};
-    Borda(52, 23, 15, 2, 0,0);
     GotoXY(19, 14);printf("%d acesso(s)", buscab);
     GotoXY(90, 14);printf("%d acesso(s)", contador);
     Comparacao = Menu(Comparar, p, q, Comparacao, 1);

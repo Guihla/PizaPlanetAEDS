@@ -24,7 +24,7 @@ int MenorChave(BTree *raiz);
 void Executar_Btree();
 BTree* IndexarBTree(BTree* No);
 BTree *BuscarID(BTree *No);
-int BuscaBinaria(int v[], int n, int x);
-int Encontrar_Binaria(int id);
+int AcessoBinaria(int v[], int n, int x);
+int AcessoBinariaQuant(int id);
 
 #endif // BTREE_H_INCLUDED
