@@ -56,6 +56,5 @@ int main(){
         }
     }while(escolha != -1);
     GotoXY(0, 45);
-    Imprime(No);
     return  0;
 }
