@@ -1,22 +1,22 @@
 # depslib dependency file v1.0
-1688397720 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
+1688407131 source:c:\users\gui\desktop\pizaplanetaeds\interface.c
 	"interface.h"
 	"arquivos.h"
 
-1688392911 c:\users\gui\desktop\pizaplanetaeds\interface.h
+1688407131 c:\users\gui\desktop\pizaplanetaeds\interface.h
 	<stdio.h>
 	<conio.h>
 	<string.h>
 	<windows.h>
 
-1688398020 source:c:\users\gui\desktop\pizaplanetaeds\main.c
+1688408240 source:c:\users\gui\desktop\pizaplanetaeds\main.c
 	<stdio.h>
 	<stdlib.h>
 	"interface.h"
 	"arquivos.h"
 	"Btree.h"
 
-1688398020 source:c:\users\gui\desktop\pizaplanetaeds\arquivos.c
+1688406648 source:c:\users\gui\desktop\pizaplanetaeds\arquivos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -34,7 +34,7 @@
 
 1688209907 c:\users\gui\desktop\pizaplanetaeds\buscar.h
 
-1688397842 source:c:\users\gui\desktop\pizaplanetaeds\btree.c
+1688407996 source:c:\users\gui\desktop\pizaplanetaeds\btree.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -43,7 +43,7 @@
 	"interface.h"
 	"arquivos.h"
 
-1688396166 c:\users\gui\desktop\pizaplanetaeds\btree.h
+1688408373 c:\users\gui\desktop\pizaplanetaeds\btree.h
 	<stdio.h>
 	<stdlib.h>
 

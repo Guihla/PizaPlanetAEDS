@@ -35,5 +35,6 @@ void TelaBuscar();
 void TelaNaoExiste();
 void TelaLeitura();
 int TelaComparacao(int buscab, int contador);
+void Tela_Indexar();
 
 #endif // INTERFACE_H_INCLUDED

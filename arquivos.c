@@ -5,7 +5,6 @@
 
 Dados D;
 
-
 void Ler_Arquivo(){
     FILE *fb = fopen("DadosPizzaria.txt","wb+");
     char linha[1000000], texto[1000000];
